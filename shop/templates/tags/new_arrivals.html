@@ -1,0 +1,39 @@
+{% load tags %}
+<div class="site-section block-3 site-blocks-2 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 site-section-heading text-center pt-4">
+                <h2>Новое поступление</h2>
+            </div>
+        </div>
+
+
+        <div class="row mb-5">
+            {% for new_arrivals in new_arrivals_item %}
+            <div class="col-sm-6 col-lg-4 mb-4">
+                <div class="block-4 text-center border">
+                    <figure class="block-4-image">
+                        <a href="{{ new_arrivals.get_absolute_url }}"><img src="{{ new_arrivals.catalog_image.url }}"
+                                                                      alt="Image placeholder"
+                                                                      class="img-fluid"></a>
+                    </figure>
+                    <div class="block-4-text p-4">
+                        <h3><a href="{{ new_arrivals.get_absolute_url }}">{{ new_arrivals.catalog_title }}</a></h3>
+                        {% if new_arrivals.catalog_price_old %}
+                        <p class="mb-0"><s>{{ new_arrivals.catalog_price_old }} ₽</s></p>
+                        {% endif %}
+                        <p class="text-primary font-weight-bold">{{ new_arrivals.catalog_price }} ₽</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+<div class="col-md-12 col-lg-12 text-center pl-md-5">
+                        <p><a href="/catalog" class="btn btn-primary btn-sm">Каталог</a></p>
+        </div>
+</div>

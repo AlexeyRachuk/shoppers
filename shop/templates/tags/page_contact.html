@@ -1,0 +1,16 @@
+{% for page_contact in page_contact_item %}
+<div class="col-md-5 ml-auto">
+    <div class="p-4 border mb-3">
+        <span class="d-block text-primary h6 text-uppercase">Наш адрес</span>
+        <!--<p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>-->
+        <div class="block-5 mb-5">
+            <ul class="list-unstyled">
+                <li class="address">{{ page_contact.contact_adress }}</li>
+                <li class="phone">{{ page_contact.contact_tel }}</li>
+                <li class="email">{{ page_contact.contact_email }}</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+{% endfor %}

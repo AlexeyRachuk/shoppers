@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load tags %}
+{% for index in index_items %}
+<div class="site-blocks-cover" style="background-image: url({{ index.banner_image.url }});">
+    <div class="container">
+        <div class="row align-items-start align-items-md-center justify-content-end">
+            <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
+                <h1 class="mb-2">{{ index.banner_title }}</h1>
+                <div class="intro-text text-center text-md-left">
+                    <p class="mb-4">{{ index.banner_description }}</p>
+                    <p>
+                        <a href="{{ index.banner_url }}" class="btn btn-sm btn-primary">{{ index.banner_button }}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% get_benefit %}
+
+{% get_index_team %}
+{% get_new_arrivals %}
+
+{% get_index_action %}
+{% endfor %}
+{% endblock content %}

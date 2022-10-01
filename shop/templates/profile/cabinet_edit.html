@@ -1,0 +1,104 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a href="/">Главная</a> <span class="mx-2 mb-0">/</span> <strong
+                    class="text-black">Личный кабинет</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h2 class="h3 mb-3 text-black">Редактирование данных {{ user.username }}</h2>
+
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="p-3 p-lg-5 border">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label class="text-black">Имя</label>
+                                {{ form.first_name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-black">Фамилия</label>
+                                {{ form.last_name }}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="text-black">Название организации (для юр.лиц)</label>
+                                {{ form.company }}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="text-black">E-mail</label>
+                                {{ user.email }}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="text-black">Телефон</label>
+                                {{ form.tel }}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label class="text-black">Город</label>
+                                {{ form.city }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-black">Индекс</label>
+                                {{ form.zip_code }}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label class="text-black">Адрес доствки</label>
+                                {{ form.address }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-black">Номер квартиры или офиса</label>
+                                {{ form.point }}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="text-black">Дополнительная информация</label>
+                            {{ form.descr }}
+                        </div>
+                        <div class="col-lg-12">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Сохранить">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+        <!-- </form> -->
+    </div>
+</div>
+
+{% endblock content %}

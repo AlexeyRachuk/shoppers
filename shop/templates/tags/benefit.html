@@ -1,0 +1,17 @@
+<div class="site-section site-section-sm site-blocks-1">
+    <div class="container">
+        <div class="row">
+            {% for benefit in benefit_item %}
+            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4">
+                <div class="icon mr-4 align-self-start">
+                    <span class="{{ benefit.icon.icon_class }}"></span>
+                </div>
+                <div class="text">
+                    <h2 class="text-uppercase">{{ benefit.title }}</h2>
+                    <p>{{ benefit.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a href="/">Главная</a> <span class="mx-2 mb-0">/</span> <strong
+                    class="text-black">Личный кабинет</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h2 class="h3 mb-3 text-black">Личный кабинет {{ user.username }}</h2>
+                <div class="p-3 p-lg-5 border">
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            {% for cabinet in catalog_items %}
+                            <label class="text-black"><b>Имя</b></label>
+                            <p class="text-black">{{ cabinet.first_name }}</p>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-black"><b>Фамилия</b></label>
+                            <p class="text-black">{{ cabinet.last_name }}</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label class="text-black"><b>Название организации (для юр.лиц)</b></label>
+                            {% if cabinet.company %}
+                            <p class="text-black">{{ cabinet.company }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label class="text-black"><b>Email</b></label>
+                            <p class="text-black">{{ user.email }}</p>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label class="text-black"><b>Телефон</b></label>
+                            <p class="text-black">{{ cabinet.tel }}</p>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label class="text-black"><b>Город</b></label>
+                            <p class="text-black">{{ cabinet.city }}</p>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-black"><b>Индекс</b></label>
+                            <p class="text-black">{{ cabinet.zip_code }}</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label class="text-black"><b>Адрес доствки</b></label>
+                            <p class="text-black">{{ cabinet.address }}</p>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-black"><b>Номер квартиры или офиса</b></label>
+                            <p class="text-black">{{ cabinet.point }}</p>
+
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <label class="text-black"><b>Дополнительная информация</b></label>
+                            <p class="text-black">{{ cabinet.descr }}</p>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+                    <p><a href="{% url 'cabinet_update' pk=user.id %}" class="btn btn-sm btn-primary">Редактировать
+                        профиль</a>
+
+                    <a href="{% url 'logout' %}" class="btn btn-sm btn-primary">Выход</a></p>
+
+                </div>
+            </div>
+        </div>
+        <!-- </form> -->
+    </div>
+</div>
+
+{% endblock content %}

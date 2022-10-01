@@ -1,0 +1,25 @@
+<div class="site-section border-bottom">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 site-section-heading text-center pt-4">
+                <h2>Наша команда</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for index_team in index_team_item %}
+            <div class="col-md-6 col-lg-3">
+
+                <div class="block-38 text-center">
+                    <div class="block-38-img">
+                        <div class="block-38-header">
+                            <img src="{{ index_team.team_image.url }}" alt="{{ index_team.team_name }}" class="mb-4">
+                            <h3 class="block-38-heading h4">{{ index_team.team_name }}</h3>
+                            <p class="block-38-subheading">{{ index_team.team_post }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{% load static %}
+{% for footer_contacts in footer_contacts_item %}
+<div class="col-md-6 col-lg-3">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading mb-4">Контакты</h3>
+              <ul class="list-unstyled">
+                <li class="address">{{ footer_contacts.contact_adress }}</li>
+                <li class="phone">{{ footer_contacts.contact_tel }}</li>
+                <li class="email">{{ footer_contacts.contact_email }}</li>
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                {{ footer_contacts.copywrite }} | Шаблон:  by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> <i class="icon-heart" aria-hidden="true"></i> | Разработка: <a href="https://t.me/raccoon_meh" target="_blank"><img src="{% static 'images/raccoon_meh.svg' %}"></a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+
+        </div>
+{% endfor %}

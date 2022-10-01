@@ -1,0 +1,19 @@
+{% load tags %}
+<div class="col-md-3 order-1 mb-5 mb-md-0">
+    <div class="border p-4 rounded mb-4">
+        <h3 class="mb-3 h6 text-uppercase text-black d-block">Категория</h3>
+        <ul class="list-unstyled mb-0">
+            {% for category in categories %}
+            <li class="mb-1"><a href="{{ category.get_absolute_url }}" class="d-flex"><span>{{ category.category_title }}</span>
+                <span class="text-black ml-auto">
+                    {% for category_count in category_counts %}
+                    {% if category.category_title == category_count.category_title %}
+                    {{ category_count.catalog_count }}
+                    {% endif %}
+                    {% endfor %}
+                </span></a>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
